@@ -1,0 +1,11 @@
+# 构建产物
+build/
+.gradle/
+.kotlin/
+.idea/
+local.properties
+# 大文件走 Release 资产
+artifacts/*.apk
+artifacts/*.zip
+*.zip
+*.log
