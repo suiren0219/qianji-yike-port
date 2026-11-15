@@ -51,7 +51,6 @@ import com.xiaojinzi.support.ktx.format2f
 import com.xiaojinzi.support.ktx.nothing
 import com.xiaojinzi.support.ktx.orNull
 import com.xiaojinzi.support.ktx.toStringItemDto
-import com.xiaojinzi.tally.lib.res.OssProcess
 import com.xiaojinzi.tally.lib.res.model.support.rememberPainter
 import com.xiaojinzi.tally.lib.res.model.tally.TallyBillDto
 import com.xiaojinzi.tally.lib.res.ui.APP_PADDING_NORMAL
@@ -204,35 +203,6 @@ private fun BillDetailView(
                             .nothing(),
                     ) {
 
-                        billDetailInfo?.userInfoCache?.let { userInfo ->
-                            Row(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .wrapContentHeight()
-                                    .padding(horizontal = 0.dp, vertical = APP_PADDING_NORMAL.dp)
-                                    .nothing(),
-                                verticalAlignment = Alignment.CenterVertically,
-                                horizontalArrangement = Arrangement.SpaceBetween,
-                            ) {
-                                Text(
-                                    text = "创建用户",
-                                    style = MaterialTheme.typography.titleSmall.copy(
-                                        color = MaterialTheme.colorScheme.onSurface,
-                                    ),
-                                    textAlign = TextAlign.Start,
-                                )
-                                Text(
-                                    text = userInfo.name.orEmpty(),
-                                    style = MaterialTheme.typography.bodyMedium.copy(
-                                        fontWeight = FontWeight.Medium,
-                                        color = MaterialTheme.colorScheme.onSurface,
-                                    ),
-                                    textAlign = TextAlign.Start,
-                                )
-                            }
-
-                            AppDivider()
-                        }
 
                         Row(
                             modifier = Modifier
@@ -603,7 +573,6 @@ private fun BillDetailView(
                                             modifier = Modifier
                                                 .fillMaxSize()
                                                 .nothing(),
-                                            cosImageProcess = OssProcess.THUMBNAIL400,
                                             imageRes = item.url,
                                         )
                                     }

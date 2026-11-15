@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Match module-base/theme/PortDesign.kt; Glance resolves these in the host configuration. -->
+    <color name="widget_background">#F3F4F7</color>
+    <color name="widget_surface">#FFFFFF</color>
+    <color name="widget_text">#1C2028</color>
+    <color name="widget_secondary">#626B79</color>
+    <color name="widget_accent">#2864D7</color>
+    <color name="widget_on_accent">#FFFFFF</color>
+    <color name="widget_accent_container">#E7EEFD</color>
+    <color name="widget_track">#EAEDF2</color>
+    <color name="widget_error">#B54445</color>
+</resources>

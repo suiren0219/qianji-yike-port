@@ -36,35 +36,14 @@ android {
     productFlavors {
         maybeCreate("dev").apply {
             dimension = "env"
-            buildConfigField(
-                "String",
-                "baseNetworkUrl",
-                // "\"http://1978iy9407.zicp.fun:28080/api\"",
-                "\"https://yike.icxj.cn/api\"",
-            )
-            buildConfigField(
-                "String",
-                "baseWebUrl",
-                "\"https://yike.icxj.cn\"",
-            )
         }
         maybeCreate("prd").apply {
             dimension = "env"
-            buildConfigField(
-                "String",
-                "baseNetworkUrl",
-                "\"https://yike.icxj.cn/api\"",
-            )
-            buildConfigField(
-                "String",
-                "baseWebUrl",
-                "\"https://yike.icxj.cn\"",
-            )
         }
     }
     defaultConfig {
-        applicationId = namespace
-        versionName = "1.0.2"
+        applicationId = "suiren.qianji"
+        versionName = "1.3.0"
         versionCode = versionName?.toVersionCode()
         val applicationIdFormat = applicationId!!.replace(oldChar = '.', newChar = '_')
         buildTypes {
@@ -125,6 +104,5 @@ android {
 }
 
 dependencies {
-    implementation(project(":module-network:opensource"))
     implementation(project(":module-qianji"))
 }

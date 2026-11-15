@@ -13,6 +13,7 @@ import com.xiaojinzi.support.annotation.ViewModelLayer
 import com.xiaojinzi.support.ktx.getMonthInterval
 import com.xiaojinzi.support.ktx.sharedStateIn
 import com.xiaojinzi.tally.lib.res.model.tally.MoneyFen
+import com.xiaojinzi.tally.lib.res.model.tally.TallyBillDto
 import com.xiaojinzi.tally.module.base.module.common_bill_list.domain.CommonBillQueryConditionUseCase
 import com.xiaojinzi.tally.module.base.module.common_bill_list.domain.CommonBillQueryConditionUseCaseImpl
 import com.xiaojinzi.tally.module.base.spi.TallyDataSourceSpi
@@ -221,11 +222,16 @@ class BillUseCaseImpl(
                                     .tallyDataSourceSpi
                                     .subscribeBillAmountByCondition(
                                         queryCondition = TallyDataSourceSpi.Companion.BillQueryConditionDto(
+                                            typeList = listOf(
+                                                TallyBillDto.Type.NORMAL,
+                                                TallyBillDto.Type.REFUND,
+                                            ),
                                             bookIdList = listOf(book.id),
                                             categoryIdList = listOf(budget.categoryId),
                                             startTimeInclude = timeRange.first,
                                             endTimeInclude = timeRange.second - 1,
                                             amountLessThanZero = true,
+                                            isNotCalculate = false,
                                         )
                                     )
                                     .map { amount ->

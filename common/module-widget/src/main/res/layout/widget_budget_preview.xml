@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Our budget layout with illustrative values, never an upstream app screenshot. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/widget_bg1" android:padding="16dp"
+    android:orientation="vertical">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="@string/widget_preview_title" android:textSize="12sp" android:textStyle="bold" android:textColor="@color/widget_accent" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+            android:layout_marginStart="8dp" android:text="@string/widget_preview_book" android:singleLine="true"
+            android:textSize="10sp" android:textColor="@color/widget_secondary" />
+    </LinearLayout>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp"
+        android:text="@string/widget_preview_remaining" android:singleLine="true" android:textSize="20sp" android:textStyle="bold" android:textColor="@color/widget_text" />
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="@string/widget_preview_total" android:textSize="10sp" android:textColor="@color/widget_secondary" />
+    <ProgressBar style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent" android:layout_height="6dp" android:layout_marginTop="4dp"
+        android:max="100" android:progress="40" android:progressDrawable="@drawable/widget_preview_progress" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
+        android:gravity="center_vertical" android:orientation="horizontal">
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+            android:text="@string/widget_preview_expense" android:singleLine="true" android:textSize="12sp" android:textColor="@color/widget_text" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+            android:text="@string/widget_preview_income" android:singleLine="true" android:textSize="12sp" android:textColor="@color/widget_text" />
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="40dp" android:orientation="horizontal">
+        <TextView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+            android:gravity="center" android:background="@drawable/widget_action_secondary"
+            android:text="@string/widget_budget_action" android:textSize="12sp" android:textStyle="bold" android:textColor="@color/widget_accent" />
+        <TextView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="8dp"
+            android:gravity="center" android:background="@drawable/widget_action_primary"
+            android:text="@string/widget_add_action" android:textSize="12sp" android:textStyle="bold" android:textColor="@color/widget_on_accent" />
+    </LinearLayout>
+</LinearLayout>
