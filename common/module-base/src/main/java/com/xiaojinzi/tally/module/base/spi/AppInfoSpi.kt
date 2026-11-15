@@ -8,7 +8,6 @@ import com.xiaojinzi.support.ktx.AppScope
 import com.xiaojinzi.support.ktx.HotStateFlow
 import com.xiaojinzi.support.ktx.MutableSharedStateFlow
 import com.xiaojinzi.support.ktx.app
-import com.xiaojinzi.tally.lib.res.SupportLoginMethod
 import com.xiaojinzi.tally.lib.res.ui.THEME_NAME_CHINA_RED
 import com.xiaojinzi.tally.lib.res.ui.THEME_NAME_CUSTOM1
 import com.xiaojinzi.tally.lib.res.ui.THEME_NAME_FOLLOW_SYSTEM
@@ -90,46 +89,6 @@ interface AppInfoSpi {
     val themeNameState: HotStateFlow<String>
 
     /**
-     * 官网地址
-     */
-    val officialUrl: String
-
-    /**
-     * baseUrl 接口的
-     */
-    val baseNetworkUrl: String
-
-    /**
-     * 用户协议
-     */
-    val userAgreementUrl: String
-
-    /**
-     * 隐私协议
-     */
-    val privacyPolicyUrl: String
-
-    /**
-     * 会员服务协议
-     */
-    val vipProtocolUrl: String
-
-    /**
-     * app 备案的信息
-     */
-    val appRecordInfo: String
-
-    /**
-     * 微信的 AppId
-     */
-    val wxAppId: String
-
-    /**
-     * 支持的登录方式列表
-     */
-    val supportLoginMethodList: List<SupportLoginMethod>
-
-    /**
      * 切换主题, <= 0 是默认的主题
      * 1    亮色
      * 2    暗色
@@ -208,29 +167,6 @@ abstract class BaseAppInfoSpiImpl : AppInfoSpi {
             key = "themeName",
             def = "",
         )
-
-    override val officialUrl: String
-        get() = ""
-
-    override val baseNetworkUrl: String
-        get() = ""
-
-    override val userAgreementUrl: String
-        get() = ""
-
-    override val privacyPolicyUrl: String
-        get() = ""
-
-    override val vipProtocolUrl: String
-        get() = ""
-
-    override val appRecordInfo: String
-        get() = "<~~~备案~~~>"
-
-    override val wxAppId: String = ""
-
-    override val supportLoginMethodList: List<SupportLoginMethod>
-        get() = emptyList()
 
     final override fun switchTheme(themeIndex: Int) {
         themeIndexStateOb.value = themeIndex

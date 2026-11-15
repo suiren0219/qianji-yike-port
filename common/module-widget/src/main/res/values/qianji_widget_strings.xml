@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="qianji_widget_budget_desc">钱迹预算</string>
+    <string name="qianji_widget_budget_desc">本月预算、收支与记账快捷入口</string>
+    <string name="widget_title">预算与收支</string>
+    <string name="widget_open_to_load">请打开应用加载本地账本</string>
+    <string name="widget_preview_title">本月预算</string>
+    <string name="widget_preview_book">日常账本 · 示例</string>
+    <string name="widget_preview_remaining">预算剩余 ¥2,400.00</string>
+    <string name="widget_preview_total">总预算 ¥4,000.00</string>
+    <string name="widget_preview_expense">支出 ¥1,600.00</string>
+    <string name="widget_preview_income">收入 ¥6,000.00</string>
+    <string name="widget_budget_action">预算</string>
+    <string name="widget_add_action">记一笔</string>
 </resources>

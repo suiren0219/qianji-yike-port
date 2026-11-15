@@ -9,11 +9,9 @@ import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
@@ -45,7 +43,6 @@ import androidx.compose.ui.unit.dp
 import com.xiaojinzi.component.impl.routeApi
 import com.xiaojinzi.reactive.template.view.BusinessContentView
 import com.xiaojinzi.support.compose.GridView
-import com.xiaojinzi.support.compose.util.clickPlaceholder
 import com.xiaojinzi.support.compose.util.clickableNoRipple
 import com.xiaojinzi.support.ktx.NormalMutableSharedFlow
 import com.xiaojinzi.support.ktx.format2f
@@ -54,7 +51,6 @@ import com.xiaojinzi.support.ktx.getDayOfMonth
 import com.xiaojinzi.support.ktx.getMonthByTimeStamp
 import com.xiaojinzi.support.ktx.getYearByTimeStamp
 import com.xiaojinzi.support.ktx.nothing
-import com.xiaojinzi.support.ktx.toStringItemDto
 import com.xiaojinzi.tally.lib.res.model.support.DateTimeType
 import com.xiaojinzi.tally.lib.res.ui.APP_PADDING_NORMAL
 import com.xiaojinzi.tally.lib.res.ui.APP_PADDING_SMALL
@@ -66,7 +62,6 @@ import com.xiaojinzi.tally.module.base.spi.TallyDataSourceSpi
 import com.xiaojinzi.tally.module.base.support.AppRouterCoreApi
 import com.xiaojinzi.tally.module.base.support.AppServices
 import com.xiaojinzi.tally.module.base.usecase.TimeSelectUseCase
-import com.xiaojinzi.tally.module.base.view.compose.AppCommonVipButton
 import com.xiaojinzi.tally.module.main.module.main.calendar.domain.CalendarUseCase
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.filter
@@ -88,7 +83,6 @@ private fun CalendarView(
 ) {
     val context = LocalContext.current
     val bookSelected by AppServices.tallyDataSourceSpi.selectedBookStateOb.collectAsState(initial = null)
-    val isVip by AppServices.userSpi.isVipStateOb.collectAsState(initial = false)
     BusinessContentView<CalendarViewModel>(
         needInit = needInit,
     ) { vm ->
@@ -402,54 +396,6 @@ private fun CalendarView(
                                             }
                                         }
                                     }
-                                }
-                            }
-                        }
-                        if (!isVip) {
-                            Box(
-                                modifier = Modifier
-                                    .matchParentSize()
-                                    .background(
-                                        color = MaterialTheme.colorScheme.surface.copy(
-                                            alpha = 0.9f,
-                                        )
-                                    )
-                                    .clickPlaceholder()
-                                    .nothing(),
-                                contentAlignment = Alignment.Center,
-                            ) {
-                                Column(
-                                    modifier = Modifier
-                                        .wrapContentSize()
-                                        .nothing(),
-                                    horizontalAlignment = Alignment.CenterHorizontally,
-                                ) {
-                                    Text(
-                                        text = "日历视图\n开通会员立即解锁",
-                                        style = MaterialTheme.typography.bodyMedium.copy(
-                                            color = MaterialTheme.colorScheme.onSurface.copy(
-                                                alpha = 0.8f,
-                                            ),
-                                        ),
-                                        textAlign = TextAlign.Center,
-                                    )
-                                    Spacer(
-                                        modifier = Modifier
-                                            .height(height = 8.dp)
-                                            .nothing()
-                                    )
-                                    AppCommonVipButton(
-                                        modifier = Modifier
-                                            .padding(
-                                                horizontal = (APP_PADDING_NORMAL * 3).dp,
-                                                vertical = 0.dp
-                                            )
-                                            .fillMaxWidth()
-                                            .wrapContentHeight()
-                                            .nothing(),
-                                        text = "了解会员权益".toStringItemDto(),
-                                        isAlertDialog = false,
-                                    )
                                 }
                             }
                         }

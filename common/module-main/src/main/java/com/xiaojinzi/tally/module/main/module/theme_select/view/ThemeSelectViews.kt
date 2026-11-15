@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.os.Build
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -35,7 +34,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -123,8 +121,6 @@ private fun ThemeSelectView(
                             .clickableNoRipple {
                                 vm.addIntent(
                                     intent = ThemeSelectIntent.ThemeColorSet(
-                                        context = context,
-                                        isNeedVip = item.isNeedVip,
                                         themeName = item.themeName,
                                     )
                                 )
@@ -326,20 +322,6 @@ private fun ThemeSelectView(
                                         },
                                     )
                                 }
-                            }
-                        } else {
-                            if (item.isNeedVip) {
-                                Image(
-                                    modifier = Modifier
-                                        .align(alignment = Alignment.BottomEnd)
-                                        .padding(horizontal = 6.dp, vertical = 6.dp)
-                                        .size(size = 16.dp)
-                                        .nothing(),
-                                    painter = painterResource(
-                                        id = com.xiaojinzi.tally.lib.res.R.drawable.res_vip3,
-                                    ),
-                                    contentDescription = null,
-                                )
                             }
                         }
                     }
